@@ -47,4 +47,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario guardado = usuarioRepository.save(usuario);
         return new UsuarioDto(guardado);
     }
+    @Override
+    public void eliminar(Long id) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + id));
+
+        usuario.setEliminado(true); // eliminación lógica
+        usuarioRepository.save(usuario);
+    }
 }

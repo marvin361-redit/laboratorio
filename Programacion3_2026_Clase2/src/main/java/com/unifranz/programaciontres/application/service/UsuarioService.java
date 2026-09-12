@@ -9,5 +9,5 @@ public interface UsuarioService {
     List<UsuarioDto> listar();
     List<UsuarioDto> listarUsuario();
     UsuarioDto guardarAdmin (UsuarioDto usuarioDto);
-
+    void eliminar(Long id);
 }

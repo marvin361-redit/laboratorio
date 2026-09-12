@@ -34,4 +34,9 @@ public class UsuarioController {
         UsuarioDto usuario = usuarioService.guardarAdmin(usuarioDto);
         return ResponseEntity.ok(usuario);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        usuarioService.eliminar(id);
+        return ResponseEntity.noContent().build();
+    }
 }
